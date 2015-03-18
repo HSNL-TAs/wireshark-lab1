@@ -105,7 +105,9 @@
     var name = $('#name').val(),
         hash = ohohoh(name),
         $indicator = $('.indicator');
-
+    if(name===''){
+       $indicator.html('請輸入點東西');
+    }
     $indicator.html('傳送中...');
     $.ajax({
       url: "http://140.114.71.175:5000/post",
@@ -114,7 +116,7 @@
       crossDomain: true,
       data: {'you-code-here': hash},
       success: function(d){
-        console.log('success');
+        $indicator.html('傳送完成了<br/>快去 wireshark 抓封包喔!');
       },
       error: function(d){
         $indicator.html('傳送完成了<br/>快去 wireshark 抓封包喔!');
