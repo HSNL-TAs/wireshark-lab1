@@ -81,19 +81,19 @@
 <body>
  <div class="jumbotron">
     <div class="container">
-    <span class="glyphicon glyphicon-console"></span>
-    <h2>網路好好玩</h2>
-    <div class="box">
-      <form id="formoid">
-        <input type="text" placeholder="請輸入你的學號，不含英文" id="name" name="name" aria-describedby="basic-addon1">
-        <input type="hidden" placeholder="password">
-        <button class="btn btn-default full-width" tpye="submit"><span class="glyphicon glyphicon-ok"></span></button>
-      </form>
+      <span class="glyphicon glyphicon-console"></span>
+      <h2>網路好好玩</h2>
+      <span class="indicator"></span>
+        <div class="box">
+          <form id="formoid">
+            <input type="text" placeholder="請輸入你的學號，不含英文" id="name" name="name" aria-describedby="basic-addon1">
+            <input type="hidden" placeholder="password">
+            <button class="btn btn-default full-width" tpye="submit"><span class="glyphicon glyphicon-ok"></span></button>
+          </form>
+        </div>
     </div>
-
-    </div>
-   
   </div>
+
   <div class="" style="position: absolute; right: 5px; bottom: 5px;">
         <a href="http://bootsnipp.com/snippets/featured/ipad-calendar-login">Directly forked from bootsnipp.</a>
   </div>
@@ -103,8 +103,10 @@
   $("#formoid").submit(function(event) {
     event.preventDefault();
     var name = $('#name').val(),
-    hash = ohohoh(name); 
-    console.log(hash);
+        hash = ohohoh(name),
+        $indicator = $('.indicator');
+
+    $indicator.html('傳送中...');
     $.ajax({
       url: "http://140.114.71.175:5000/post",
       method: "POST",
@@ -115,7 +117,7 @@
         console.log('success');
       },
       error: function(d){
-        console.log(d);
+        $indicator.html('傳送完成了<br/>快去 wireshark 抓封包喔!');
       }
     });
 
