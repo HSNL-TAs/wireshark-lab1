@@ -251,7 +251,7 @@
         return rstr2hex(raw_hmac_md5(k, d));
     }
 
-    function md5(string, key, raw) {
+    function ohohoh(string, key, raw) {
         if (!key) {
             if (!raw) {
                 return hex_md5(string);
