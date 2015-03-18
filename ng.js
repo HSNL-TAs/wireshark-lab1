@@ -266,9 +266,9 @@
 
     if (typeof define === 'function' && define.amd) {
         define(function () {
-            return md5;
+            return ohohoh;
         });
     } else {
-        $.md5 = md5;
+        $.ohohoh = ohohoh;
     }
 }(this));

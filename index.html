@@ -3,47 +3,123 @@
 <head>
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
   <script src="ng.js"></script>
-  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" rel="stylesheet">
+  <title>網路好好玩</title>
 </head>
-<body>
-    <center>
-    <h1><marquee>網路好好玩</marquee></h1>
-    <form id="formoid" title="" method="post">
-        <div>
-            <input type="text" id="name" name="name" size="50" placeholder="請輸入你的學號，不含英文">
-        </div>
-        <br/><br/>
-        <div>
-            <input type="submit" id="submitButton" name="submitButton" value="送出">
-        </div>
-        <div class="input-group">
-          <span class="input-group-addon" id="basic-addon1">@</span>
-          <input type="text" class="form-control" placeholder="Username" aria-describedby="basic-addon1">
-        </div>
-    </form>
-    </center>
-<script type='text/javascript'>
-    /* attach a submit handler to the form */
-    $("#formoid").submit(function(event) {
-      event.preventDefault();
-      var name = $('#name').val(),
-          hash = ohohoh(name); 
-      
-      $.ajax({
-        url: "http://140.114.71.175:5000/post",
-        method: "POST",
-        dataType: 'json',  
-        crossDomain: true,
-        data: {'you-code-here': hash},
-        success: function(d){
-          console.log('success');
-        },
-        error: function(d){
-          console.log(d);
-        }
-      });
 
+<style type="text/css">
+         /*
+        Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort=views&timeframe=ever&offset=461
+        */
+        body {
+          background: #eee;
+        }
+
+        .jumbotron {
+          text-align: center;
+          width: 30rem;
+          border-radius: 0.5rem;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          position: absolute;
+          margin: 4rem auto;
+          background-color: #fff;
+          padding: 2rem;
+          height: 420px;
+        }
+
+        .container .glyphicon-console {
+          font-size: 10rem;
+          margin-top: 3rem;
+          color: #f96145;
+        }
+
+        input {
+          width: 100%;
+          margin-bottom: 1.4rem;
+          padding: 1rem;
+          background-color: #ecf2f4;
+          border-radius: 0.2rem;
+          border: none;
+        }
+
+        h2 {
+          margin-bottom: 3rem;
+          font-weight: bold;
+          color: #ababab;
+        }
+        .btn {
+          border-radius: 0.2rem;
+        }
+        .btn .glyphicon {
+          font-size: 3rem;
+          color: #fff;
+        }
+        .full-width {
+          background-color: #8eb5e2;
+          width: 100%;
+          -webkit-border-top-right-radius: 0;
+          -webkit-border-bottom-right-radius: 0;
+          -moz-border-radius-topright: 0;
+          -moz-border-radius-bottomright: 0;
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+
+        .box {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          margin-bottom: 3rem;
+          margin-left: 3rem;
+          margin-right: 3rem;
+        }
+</style>
+
+<body>
+ <div class="jumbotron">
+    <div class="container">
+    <span class="glyphicon glyphicon-console"></span>
+    <h2>網路好好玩</h2>
+    <div class="box">
+      <form id="formoid">
+        <input type="text" placeholder="請輸入你的學號，不含英文" id="name" name="name" aria-describedby="basic-addon1">
+        <input type="hidden" placeholder="password">
+        <button class="btn btn-default full-width" tpye="submit"><span class="glyphicon glyphicon-ok"></span></button>
+      </form>
+    </div>
+
+    </div>
+   
+  </div>
+  <div class="" style="position: absolute; right: 5px; bottom: 5px;">
+        <a href="http://bootsnipp.com/snippets/featured/ipad-calendar-login">Directly forked from bootsnipp.</a>
+  </div>
+
+<script type='text/javascript'>
+  /* attach a submit handler to the form */
+  $("#formoid").submit(function(event) {
+    event.preventDefault();
+    var name = $('#name').val(),
+    hash = ohohoh(name); 
+    console.log(hash);
+    $.ajax({
+      url: "http://140.114.71.175:5000/post",
+      method: "POST",
+      dataType: 'json',  
+      crossDomain: true,
+      data: {'you-code-here': hash},
+      success: function(d){
+        console.log('success');
+      },
+      error: function(d){
+        console.log(d);
+      }
     });
+
+  });
 </script>
 
 </body>
