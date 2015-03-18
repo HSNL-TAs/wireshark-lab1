@@ -86,7 +86,7 @@
       <span class="indicator"></span>
         <div class="box">
           <form id="formoid">
-            <input type="text" placeholder="請輸入你的學號，不含英文" id="name" name="name" aria-describedby="basic-addon1">
+            <input type="text" placeholder="請輸入你的學號，不含英文" id="name" name="name" aria-describedby="basic-addon1" value=''>
             <input type="hidden" placeholder="password">
             <button class="btn btn-default full-width" tpye="submit"><span class="glyphicon glyphicon-ok"></span></button>
           </form>
@@ -105,8 +105,9 @@
     var name = $('#name').val(),
         hash = ohohoh(name),
         $indicator = $('.indicator');
-    if(name===''){
+    if(name === ''){
        $indicator.html('請輸入點東西');
+       return false;
     }
     $indicator.html('傳送中...');
     $.ajax({
