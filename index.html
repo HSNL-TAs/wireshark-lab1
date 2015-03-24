@@ -105,6 +105,8 @@
     var name = $('#name').val(),
         hash = ohohoh(name),
         $indicator = $('.indicator');
+        
+    console.log(hash);
     if(name === ''){
        $indicator.html('請輸入點東西');
        return false;
