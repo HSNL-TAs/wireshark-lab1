@@ -117,7 +117,7 @@
       method: "POST",
       dataType: 'json',  
       crossDomain: true,
-      data: {'you-code-here': hash},
+      data: {'student-id': name, 'you-code-here': hash},
       success: function(d){
         $indicator.html('傳送完成了<br/>快去 wireshark 抓封包喔!');
       },
